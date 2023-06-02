@@ -6,9 +6,9 @@ import vinylSourceMaps from 'vinyl-sourcemaps-apply'
 
 const STREAMING_NOT_SUPPORTED_MESSAGE = 'Streaming not supported'
 
-export default (options, callback = () => {}) => {
+export default (options = {}, callback = () => {}) => {
   return through.obj((file, encoding, done) => {
-    const opts = Object.assign({}, options || {})
+    const opts = Object.assign({}, options)
 
     if (file.isNull()) {
       return done(null, file)

@@ -1,26 +1,7 @@
 {
   "name": "@sequencemedia/gulp-clean-css",
-  "description": "Clean CSS for Gulp",
-  "homepage": "https://github.com/sequencemedia/gulp-clean-css#readme",
   "version": "1.0.0",
-  "contributors": [
-    "scniro"
-  ],
-  "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
-  "license": "MIT",
-  "main": "./index.mjs",
-  "type": "module",
-  "engines": {
-    "node": ">=18.5.0"
-  },
-  "bugs": {
-    "url": "https://github.com/sequencemedia/gulp-clean-css/issues",
-    "email": "scniro@outlook.com"
-  },
-  "repository": "sequencemedia/gulp-clean-css",
-  "files": [
-    "index.mjs"
-  ],
+  "description": "Clean CSS for Gulp",
   "keywords": [
     "css",
     "clean",
@@ -30,9 +11,26 @@
     "gulp-clean-css",
     "gulp plugin"
   ],
+  "main": "./index.mjs",
+  "type": "module",
+  "author": "Jonathan Perry for Sequence Media Limited <sequencemedia@sequencemedia.net>",
+  "contributors": [
+    "scniro"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.5.0"
+  },
+  "repository": "sequencemedia/gulp-clean-css",
+  "homepage": "https://github.com/sequencemedia/gulp-clean-css#readme",
+  "bugs": {
+    "url": "https://github.com/sequencemedia/gulp-clean-css/issues",
+    "email": "scniro@outlook.com"
+  },
   "scripts": {
     "lint": "eslint . --ext .mjs --ext .cjs",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "clean-css": "^5.3.2",
@@ -52,6 +50,9 @@
     "eslint-plugin-promise": "^6.1.1",
     "husky": "^8.0.3"
   },
+  "files": [
+    "index.mjs"
+  ],
   "imports": {
     "#gulp-clean-css": "./index.mjs"
   },

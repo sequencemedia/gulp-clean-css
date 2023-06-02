@@ -6,9 +6,9 @@ import vinylSourceMaps from 'vinyl-sourcemaps-apply'
 
 const STREAMING_NOT_SUPPORTED_MESSAGE = 'Streaming not supported'
 
-export default (options, DONE = () => {}) => {
+export default (options, callback = () => {}) => {
   return through.obj((file, encoding, done) => {
-    const _options = Object.assign({}, options || {})
+    const opts = Object.assign({}, options || {})
 
     if (file.isNull()) {
       return done(null, file)
@@ -20,23 +20,25 @@ export default (options, DONE = () => {}) => {
     }
 
     if (file.sourceMap) {
-      _options.sourceMap = JSON.parse(JSON.stringify(file.sourceMap))
+      opts.sourceMap = JSON.parse(JSON.stringify(file.sourceMap))
     }
 
     const content = {
       [file.path]: { styles: file.contents ? file.contents.toString() : '' }
     }
 
-    if (!_options.rebaseTo && _options.rebase !== false) {
-      _options.rebaseTo = path.dirname(file.path)
+    if (!opts.rebaseTo && opts.rebase !== false) {
+      opts.rebaseTo = path.dirname(file.path)
     }
 
-    const cleanCSS = new CleanCSS(_options)
+    const cleanCSS = new CleanCSS(opts)
 
     cleanCSS.minify(content, (errors, css) => {
       if (errors) {
         return done(errors.join(' '))
       }
+
+      file.contents = Buffer.from(css.styles)
 
       const details = {
         stats: css.stats,
@@ -46,23 +48,20 @@ export default (options, DONE = () => {}) => {
         name: file.path.split(file.base)[1]
       }
 
-      if (css.sourceMap) {
-        details.sourceMap = css.sourceMap
-      }
+      const sourceMap = css.sourceMap
+      if (sourceMap) {
+        details.sourceMap = sourceMap
 
-      DONE(details)
-
-      file.contents = Buffer.from(css.styles)
-
-      if (css.sourceMap) {
-        const iMap = JSON.parse(css.sourceMap)
-        const oMap = Object.assign({}, iMap, {
+        let cssMap = JSON.parse(sourceMap)
+        cssMap = Object.assign(cssMap, {
           file: path.relative(file.base, file.path),
-          sources: iMap.sources.map(mapSrc => path.relative(file.base, mapSrc))
+          sources: cssMap.sources.map((source) => path.relative(file.base, source))
         })
 
-        vinylSourceMaps(file, oMap)
+        vinylSourceMaps(file, cssMap)
       }
+
+      callback(details)
 
       done(null, file)
     })

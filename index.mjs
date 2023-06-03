@@ -1,22 +1,29 @@
 import path from 'node:path'
+import {
+  Transform
+} from 'node:stream'
 import CleanCSS from 'clean-css'
 import PluginError from 'plugin-error'
-import through from 'through2'
 import vinylSourceMaps from 'vinyl-sourcemaps-apply'
 
 const STREAMING_NOT_SUPPORTED_MESSAGE = 'Streaming not supported'
 
-export default (options = {}, callback = () => {}) => {
-  return through.obj((file, encoding, done) => {
+/**
+ *  This is just to keep `gulpCleanCSS` tidy!
+ */
+function getTransformFor (options, callback) {
+  return function transform (file, encoding, done) {
     const opts = Object.assign({}, options)
 
     if (file.isNull()) {
-      return done(null, file)
+      done(null, file)
+      return
     }
 
     if (file.isStream()) {
       this.emit('error', new PluginError('gulp-clean-css', STREAMING_NOT_SUPPORTED_MESSAGE))
-      return done(null, file)
+      done(null, file)
+      return
     }
 
     if (file.sourceMap) {
@@ -35,7 +42,8 @@ export default (options = {}, callback = () => {}) => {
 
     cleanCSS.minify(content, (errors, css) => {
       if (errors) {
-        return done(errors.join(' '))
+        done(errors.join(' '))
+        return
       }
 
       file.contents = Buffer.from(css.styles)
@@ -65,5 +73,11 @@ export default (options = {}, callback = () => {}) => {
 
       done(null, file)
     })
-  })
+  }
+}
+
+export default function gulpCleanCSS (options = {}, callback = () => {}) {
+  const transform = getTransformFor(options, callback)
+
+  return new Transform({ transform, objectMode: true })
 }

@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": ">=18.5.0"
+    "node": ">=18.12.0"
   },
   "repository": "sequencemedia/gulp-clean-css",
   "homepage": "https://github.com/sequencemedia/gulp-clean-css#readme",
@@ -45,7 +45,7 @@
     "@babel/core": "^7.22.17",
     "@babel/eslint-parser": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
-    "@sequencemedia/hooks": "^1.0.450",
+    "@sequencemedia/hooks": "^1.0.451",
     "eslint": "^8.49.0",
     "eslint-config-standard": "^17.1.0",
     "husky": "^8.0.3"

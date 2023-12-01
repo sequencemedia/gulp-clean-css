@@ -37,7 +37,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "clean-css": "^5.3.2",
+    "clean-css": "^5.3.3",
     "plugin-error": "^2.0.1",
     "vinyl-sourcemaps-apply": "0.2.1"
   },
@@ -45,7 +45,7 @@
     "@babel/core": "^7.23.5",
     "@babel/eslint-parser": "^7.23.3",
     "@babel/preset-env": "^7.23.5",
-    "@sequencemedia/hooks": "^1.0.464",
+    "@sequencemedia/hooks": "^1.0.465",
     "eslint": "^8.54.0",
     "eslint-config-standard": "^17.1.0",
     "husky": "^8.0.3"

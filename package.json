@@ -42,13 +42,13 @@
     "vinyl-sourcemaps-apply": "0.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.7",
-    "@babel/eslint-parser": "^7.23.3",
-    "@babel/preset-env": "^7.23.8",
-    "@sequencemedia/hooks": "^1.0.473",
+    "@babel/core": "^7.23.9",
+    "@babel/eslint-parser": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@sequencemedia/hooks": "^1.0.474",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
-    "husky": "^9.0.1"
+    "husky": "^9.0.6"
   },
   "files": [
     "index.mjs"

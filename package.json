@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": ">=18.12.0"
+    "node": ">=18.12.0 <=21.7.3 || >=22.2.0"
   },
   "repository": "sequencemedia/gulp-clean-css",
   "homepage": "https://github.com/sequencemedia/gulp-clean-css#readme",

@@ -45,9 +45,9 @@
     "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.25.1",
     "@babel/preset-env": "^7.25.3",
-    "@sequencemedia/eslint-config-standard": "^0.0.30",
-    "@sequencemedia/hooks": "^1.0.520",
-    "eslint": "^9.8.0",
+    "@sequencemedia/eslint-config-standard": "^0.0.31",
+    "@sequencemedia/hooks": "^1.0.521",
+    "eslint": "^9.9.0",
     "globals": "^15.9.0",
     "husky": "^9.1.4"
   },

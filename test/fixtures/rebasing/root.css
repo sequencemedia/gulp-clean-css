@@ -1,5 +1,0 @@
-@import url(otherdir/fromroot.css);
-p.root
-{
-    background: url(inroot.png);
-}

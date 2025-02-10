@@ -42,11 +42,11 @@
     "vinyl-sourcemaps-apply": "0.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.7",
-    "@babel/eslint-parser": "^7.26.5",
-    "@babel/preset-env": "^7.26.7",
-    "@sequencemedia/eslint-config-standard": "^0.2.18",
-    "eslint": "^9.19.0",
+    "@babel/core": "^7.26.8",
+    "@babel/eslint-parser": "^7.26.8",
+    "@babel/preset-env": "^7.26.8",
+    "@sequencemedia/eslint-config-standard": "^0.2.19",
+    "eslint": "^9.20.0",
     "globals": "^15.14.0",
     "husky": "^9.1.7"
   },

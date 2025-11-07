@@ -1,6 +1,6 @@
 {
   "name": "@sequencemedia/gulp-clean-css",
-  "version": "1.0.282",
+  "version": "1.0.283",
   "description": "Clean CSS for Gulp",
   "keywords": [
     "css",

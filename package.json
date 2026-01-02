@@ -47,7 +47,7 @@
     "@babel/preset-env": "^7.28.5",
     "@sequencemedia/eslint-config-standard": "^0.2.107",
     "eslint": "^9.39.2",
-    "globals": "^16.5.0",
+    "globals": "^17.0.0",
     "husky": "^9.1.7"
   },
   "files": [

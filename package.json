@@ -43,10 +43,9 @@
   },
   "devDependencies": {
     "@babel/core": "7.29.7",
-    "@babel/eslint-parser": "7.29.7",
     "@babel/preset-env": "7.29.7",
-    "@sequencemedia/eslint-config-standard": "^0.3.4",
-    "eslint": "9.38.0",
+    "@sequencemedia/eslint-config-standard": "0.4.1",
+    "eslint": "10.15.0",
     "globals": "^17.14.0",
     "husky": "^9.1.7"
   },
